@@ -165,6 +165,31 @@
   let resumeTimer;
   let isLooping = false;
   const bottomFade = document.querySelector(".page-fade-bottom");
+  const header = document.querySelector(".header");
+  let previousScrollY = window.scrollY;
+
+  function updateNavbar() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY <= 10 || currentScrollY < previousScrollY) {
+      header.classList.remove("nav-hidden");
+    } else if (currentScrollY > previousScrollY) {
+      header.classList.add("nav-hidden");
+    }
+
+    previousScrollY = currentScrollY;
+  }
+
+  window.addEventListener("scroll", updateNavbar, { passive: true });
+
+  function handleWheel(event) {
+    pauseAutoScroll();
+    if (event.deltaY < 0) {
+      header.classList.remove("nav-hidden");
+    } else if (event.deltaY > 0 && window.scrollY > 10) {
+      header.classList.add("nav-hidden");
+    }
+  }
 
   function pauseAutoScroll() {
     autoScroll = false;
@@ -172,7 +197,9 @@
     resumeTimer = setTimeout(() => autoScroll = true, 1200);
   }
 
-  ["wheel", "touchstart", "keydown", "mousedown"].forEach(type => {
+  window.addEventListener("wheel", handleWheel, { passive: true });
+
+  ["touchstart", "keydown", "mousedown"].forEach(type => {
     window.addEventListener(type, pauseAutoScroll, { passive: true });
   });
 

@@ -38,8 +38,19 @@ body::before {
 }
 
 .header {
-  background: rgba(255,255,255,.96);
-  border-bottom: 1px solid #eee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  background: rgba(255,255,255,.72);
+  border-bottom: 1px solid rgba(238,238,238,.75);
+  backdrop-filter: blur(3px);
+  transition: transform .25s ease;
+}
+
+.header.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .nav-wrap {
@@ -110,7 +121,7 @@ body::before {
 
 /* HERO */
 .hero {
-  padding: 35px 0 100px;
+  padding: 0 0 100px;
 }
 
 .sketch-slider {
@@ -118,7 +129,7 @@ body::before {
   width: 820px;
   max-width: calc(100% - 70px);
   height: 350px;
-  margin: 0 auto 30px;
+  margin: 150px auto 30px;
 }
 
 .sketch-slider::before,
@@ -809,7 +820,6 @@ body {
 }
 
 /* Extra rough paper edge */
-.header,
 .section,
 .footer {
   position: relative;
