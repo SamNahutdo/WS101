@@ -745,6 +745,20 @@ blockquote {
     padding: 55px 0;
   }
 
+  .services h2 {
+    font-size: 28px;
+  }
+
+  .services .service h3 {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  .services .service p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
   .service-grid,
   .portfolio-grid,
   .blog-grid {
