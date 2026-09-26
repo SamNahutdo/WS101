@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laag — Bohol Stories</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="story-page">
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html#home">Sam</a>
+      <nav class="nav">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#portfolio">Laag</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="story-main">
+    <section class="story-intro">
+      <div class="container">
+        <p class="story-kicker">A Bohol story</p>
+        <h1>Every road has a story.</h1>
+        <div class="sketch-line"></div>
+        <p class="story-lead">Come with me through the places, people, and quiet moments that make a day in Bohol unforgettable.</p>
+      </div>
+    </section>
+
+    <section class="story-chapter">
+      <div class="story-image"><img src="image.jpg" alt="A mountain landscape in Bohol"></div>
+      <div class="story-copy">
+        <p class="story-number">01</p>
+        <h2>The first turn</h2>
+        <p>We leave the busy road behind and follow the hills. The air becomes cooler, the view opens wider, and the first part of the journey begins at an easy pace.</p>
+      </div>
+    </section>
+
+    <section class="story-chapter story-chapter-reverse">
+      <div class="story-image"><img src="image.jpg" alt="A peaceful Bohol travel view"></div>
+      <div class="story-copy">
+        <p class="story-number">02</p>
+        <h2>Take your time</h2>
+        <p>There is always a better place to stop for a photo, a conversation, or a quiet look around. I will guide you through Bohol without rushing the good parts.</p>
+      </div>
+    </section>
+
+    <section class="story-chapter">
+      <div class="story-image"><img src="image.jpg" alt="A scenic Bohol tour destination"></div>
+      <div class="story-copy">
+        <p class="story-number">03</p>
+        <h2>Bring the memory home</h2>
+        <p>At the end of the day, the best souvenir is the story you can tell. Let us make a Bohol experience that feels personal, warm, and completely yours.</p>
+      </div>
+    </section>
+
+    <section class="story-finish">
+      <div class="container">
+        <h2>Your story can start here.</h2>
+        <a class="sketch-button" href="index.html#contact">Plan a Tour</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const header = document.querySelector(".header");
+    let previousScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY <= 10 || currentScrollY < previousScrollY) {
+        header.classList.remove("nav-hidden");
+      } else {
+        header.classList.add("nav-hidden");
+      }
+      previousScrollY = currentScrollY;
+    }, { passive: true });
+  </script>
+</body>
+</html>
