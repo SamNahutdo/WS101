@@ -187,12 +187,14 @@
     if (window.scrollY >= max - 5) {
       if (isLooping) return;
       isLooping = true;
-      bottomFade.classList.add("looping");
       setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "instant" });
-        bottomFade.classList.remove("looping");
-        isLooping = false;
-      }, 700);
+        bottomFade.classList.add("looping");
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "instant" });
+          bottomFade.classList.remove("looping");
+          isLooping = false;
+        }, 700);
+      }, 10000);
     } else {
       window.scrollBy({ top: 2, behavior: "auto" });
     }
