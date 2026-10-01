@@ -332,32 +332,38 @@ body::before {
   top: 55px;
 }
 
-.phone-body {
-  width: 40px;
-  height: 66px;
-  border: 4px solid #222;
-  border-radius: 7px;
+.book-shape {
+  width: 58px;
+  height: 58px;
   margin: auto;
-  transform: rotate(-5deg);
-}
-
-.paint-drop {
-  width: 42px;
-  height: 42px;
+  position: relative;
   border: 4px solid #222;
-  border-radius: 60% 40% 65% 35%;
-  transform: rotate(45deg);
-  margin: 9px auto 0;
+  transform: rotate(-4deg);
 }
 
-.brush {
+.book-shape::before {
+  content: "";
   position: absolute;
-  width: 70px;
-  height: 6px;
-  background: #222;
-  transform: rotate(-45deg);
-  left: 10px;
-  top: 45px;
+  inset: 0 50%;
+  border-left: 3px solid #222;
+}
+
+.book-shape::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 7px;
+  right: 7px;
+  height: 22px;
+  border-top: 2px solid #222;
+  border-bottom: 2px solid #222;
+}
+
+.code-mark {
+  display: block;
+  color: #222;
+  font: 700 32px/80px Consolas, monospace;
+  transform: rotate(-5deg);
 }
 
 .globe-shape {
@@ -727,6 +733,43 @@ blockquote {
   font-family: var(--client-font);
 }
 
+.contact-form {
+  max-width: 600px;
+  margin: 28px auto 0;
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #222;
+  background: #fff;
+  font: inherit;
+}
+
+.contact-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.contact-form button {
+  justify-self: start;
+  padding: 10px 20px;
+  border: 2px solid #222;
+  background: #fff;
+  color: #222;
+  font: inherit;
+  cursor: pointer;
+}
+
 .social {
   margin-top: 30px;
   display: flex;
@@ -795,6 +838,7 @@ blockquote {
   .portfolio-grid {
     grid-template-columns: 1fr 1fr;
   }
+
 }
 
 @media (max-width: 520px) {
