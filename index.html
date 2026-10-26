@@ -82,12 +82,12 @@
       <h2>Projects</h2>
       <div class="sketch-line"></div>
       <div class="portfolio-grid">
-        <a class="work work1" href="#single"><img src="images/image.jpg" alt="Portfolio website"><span>Portfolio Website</span></a>
-        <a class="work work2" href="story.html"><img src="images/image.jpg" alt="Bohol travel story"><span>Bohol Story</span></a>
-        <a class="work work3" href="#single"><img src="images/image.jpg" alt="Web design work"><span>Web Design</span></a>
-        <a class="work work4" href="#single"><img src="images/image.jpg" alt="HTML and CSS work"><span>HTML &amp; CSS</span></a>
-        <a class="work work5" href="#single"><img src="images/image.jpg" alt="Digital media work"><span>Digital Media</span></a>
-        <a class="work work6" href="#single"><img src="images/image.jpg" alt="Creative work"><span>Creative Work</span></a>
+        <a class="work work1" href="#single"><img src="images/FalconSystem.png" alt="Falcon System"><span>Falcon System</span></a>
+        <a class="work work2" href="story.html"><img src="images/boholboard.png" alt="Bohol board"><span>Bohol board</span></a>
+        <a class="work work3" href="#single"><img src="images/sycomp.png" alt="Sycomp Arcade"><span>Sycomp Arcade</span></a>
+        <a class="work work4" href="#single"><img src="images/Cprojects.png" alt="C Projects"><span>C Projects</span></a>
+        <a class="work work5" href="#single"><img src="images/pasdes.png" alt="IOT"><span>Internet of Things</span></a>
+        <a class="work work6" href="#single"><img src="images/coecsbaseball.png" alt="Creative work"><span>Coecs Baseball</span></a>
       </div>
       <a class="sketch-button" href="story.html">See More</a>
     </div>
@@ -108,98 +108,6 @@
   </section>
 </main>
 
-<script>
-(function () {
-  const music = document.getElementById("bgMusic");
-  const button = document.getElementById("musicToggle");
-  const text = document.getElementById("musicText");
-
-  function startMusic() {
-    if (!music || !music.paused) return;
-    music.play().then(() => {
-      button.classList.add("playing");
-      text.textContent = "Pause";
-    }).catch(() => {
-      text.textContent = "Unavailable";
-    });
-  }
-
-  startMusic();
-  document.addEventListener("click", function firstInteraction() {
-    startMusic();
-    document.removeEventListener("click", firstInteraction);
-  }, { once: true });
-
-  button.addEventListener("click", function (event) {
-    event.stopPropagation();
-    if (music.paused) {
-      music.play().then(() => {
-        button.classList.add("playing");
-        text.textContent = "Pause";
-      }).catch(() => {
-        text.textContent = "Unavailable";
-      });
-    } else {
-      music.pause();
-      button.classList.remove("playing");
-      text.textContent = "Music";
-    }
-  });
-
-  let autoScroll = true;
-  let resumeTimer;
-  let isLooping = false;
-  const bottomFade = document.querySelector(".page-fade-bottom");
-  const header = document.querySelector(".header");
-  let previousScrollY = window.scrollY;
-
-  function updateNavbar() {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY <= 10 || currentScrollY < previousScrollY) {
-      header.classList.remove("nav-hidden");
-    } else if (currentScrollY > previousScrollY) {
-      header.classList.add("nav-hidden");
-    }
-    previousScrollY = currentScrollY;
-  }
-
-  window.addEventListener("scroll", updateNavbar, { passive: true });
-
-  function pauseAutoScroll() {
-    autoScroll = false;
-    clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(() => autoScroll = true, 1200);
-  }
-
-  window.addEventListener("wheel", function (event) {
-    pauseAutoScroll();
-    if (event.deltaY < 0) header.classList.remove("nav-hidden");
-    else if (event.deltaY > 0 && window.scrollY > 10) header.classList.add("nav-hidden");
-  }, { passive: true });
-
-  ["touchstart", "keydown", "mousedown"].forEach(type => {
-    window.addEventListener(type, pauseAutoScroll, { passive: true });
-  });
-
-  setInterval(() => {
-    if (!autoScroll) return;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (window.scrollY >= max - 5) {
-      if (isLooping) return;
-      isLooping = true;
-      setTimeout(() => {
-        bottomFade.classList.add("looping");
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: "instant" });
-          bottomFade.classList.remove("looping");
-          isLooping = false;
-        }, 700);
-      }, 10000);
-    } else {
-      window.scrollBy({ top: 2, behavior: "auto" });
-    }
-  }, 40);
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
